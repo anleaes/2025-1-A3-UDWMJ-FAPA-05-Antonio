@@ -1,2 +1,4 @@
 db.sqlite3
-modeloapp/__pycache__/*
+*/__pycache__/*
+**/migrations/*
+**/__pycache__/*
