@@ -1,1 +1,63 @@
 # 2025-1-A3-UDWMJ-FAPA-05
+## Projeto A3
+Aplicativo em Django com o tema 'Biblioteca'.
+
+## Diagrama de Classes
+```mermaid
+classDiagram
+  class Autor {
+    -nome: String
+    -idade: int
+  }
+
+  class Editora {
+    -nome: String
+    -anoFundacao: int
+  }
+
+  class Categoria {
+    -nome: String
+    -descricao: String
+  }
+
+  class Cliente {
+    -nome: String
+    -email: String
+    -celular: String
+    -idCliente: int
+  }
+
+  class Livro {
+    -titulo: String
+    -Autor: Autor
+    -Categoria: Categoria
+    -Editora: Editora
+    -anoPublicacao: int
+    -estoque: int
+  }
+
+  class Emprestimo {
+    -Cliente: Cliente
+    -Bibliotecario: Bibliotecario
+    -status: "em andamento", "finalizado"
+    -dataInicio: Date
+    -dataFim: Date
+  }
+
+  class ItemEmprestimo {
+    -Livro: Livro
+    -Emprestimo: Emprestimo
+  }
+
+  class Bibliotecario {
+    -nome: String
+    -turno: "matutino", "vespertino"
+  }
+
+  Categoria "*" o--> "many" Livro
+  Autor "*" o--> "*" Livro
+  Editora "1" o--> "*" Livro
+  Cliente "1" o--> "*" Emprestimo
+  Livro "1" o--> "1" ItemEmprestimo
+  Emprestimo "1" o--> "*" ItemEmprestimo
+  Bibliotecario "1" o--> "*" Emprestimo
