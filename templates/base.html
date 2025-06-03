@@ -14,8 +14,8 @@
     <br/>
 
     <br />
-    <a href="/" ><button onclick="mudarCor()">Clientes</button></a>
-    <a href="/" ><button onclick="mudarCor()">Livros</button></a>
+    <a href="{% url 'clientes:list_clientes' %}" ><button>Clientes</button></a>
+    <a href="/" ><button>Livros</button></a>
     <br />
     
     {% block body %}
