@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Bibliotecario - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+  <b>Cadastro de Bibliotecarios</b>
+  <br />
+  <br />
+  <form action="" method="POST">
+    {% csrf_token %}
+    <label>Nome:</label>
+    <br />
+    {{ form.first_name }}
+    <br />
+    <label>Sobrenome:</label>
+    <br />
+    {{ form.last_name }}
+    <br />
+    <label>Turno:</label>
+    <br />
+    {{ form.shift }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock %}
