@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Lista de Bibliotecarios - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+    <a href="{% url 'bibliotecarios:add_bibliotecario' %}">Cadastrar novo bibliotecario</a>
+  <br />
+  <br />
+  <b>Lista de bibliotecarios</b>
+  <br />
+  <br />
+  <table border="1">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Turno</th>
+        <th scope="col">--</th>
+        <th scope="col">--</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bibliotecario in bibliotecarios %}
+        <tr>
+          <th>{{ bibliotecario.id }}</th>
+          <td>{{ bibliotecario.first_name }}</td>
+          <td>{{ bibliotecario.last_name }}</td>
+          <td>{{ bibliotecario.shift }}</td>
+          <td>
+            <a href="{% url 'bibliotecarios:edit_bibliotecario' bibliotecario.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'bibliotecarios:delete_bibliotecario' bibliotecario.id %}" >Excluir</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
