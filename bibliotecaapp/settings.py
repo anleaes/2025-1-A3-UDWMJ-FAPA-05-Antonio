@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig', 
     'clientes.apps.ClientesConfig', 
+    'bibliotecarios.apps.BibliotecariosConfig', 
 ]
 
 MIDDLEWARE = [
