@@ -22,9 +22,11 @@ classDiagram
 
   class Cliente {
     -nome: String
-    -email: String
+    -sobrenome: String
+    -email: Email
     -celular: String
-    -idCliente: int
+    -endereco: String
+    -genero: "Masculino" | "Feminino" | "Outro"
   }
 
   class Livro {
@@ -51,7 +53,8 @@ classDiagram
 
   class Bibliotecario {
     -nome: String
-    -turno: "matutino", "vespertino"
+    -sobrenome: String
+    -turno: "Matutino" | "Vespertino"
   }
 
   Categoria "*" o--> "many" Livro
