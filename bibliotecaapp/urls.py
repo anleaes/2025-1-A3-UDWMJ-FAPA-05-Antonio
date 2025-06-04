@@ -25,6 +25,7 @@ urlpatterns = [
     path('clientes/', include('clientes.urls', namespace='clientes')),
     path('bibliotecarios/', include('bibliotecarios.urls', namespace='bibliotecarios')),
     path('categorias/', include('categorias.urls', namespace='categorias')),
+    path('autores/', include('autores.urls', namespace='autores')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
