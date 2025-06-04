@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Lista de Categorias - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+    <a href="{% url 'categorias:add_categoria' %}">Cadastrar novo categoria</a>
+  <br />
+  <br />
+  <b>Lista de categoria</b>
+  <br />
+  <br />
+  <table border="1">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descricao</th>
+        <th scope="col">--</th>
+        <th scope="col">--</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for categoria in categorias %}
+        <tr>
+          <th>{{ categoria.id }}</th>
+          <td>{{ categoria.name }}</td>
+          <td>{{ categoria.description }}</td>
+          <td>
+            <a href="{% url 'categorias:edit_categoria' categoria.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'categorias:delete_categoria' categoria.id %}" >Excluir</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
