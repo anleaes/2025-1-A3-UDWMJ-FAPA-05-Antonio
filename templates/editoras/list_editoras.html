@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Lista de Editoras - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+    <a href="{% url 'editoras:add_editora' %}">Cadastrar nova editora</a>
+  <br />
+  <br />
+  <b>Lista de editoras</b>
+  <br />
+  <br />
+  <table border="1">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Ano de Fundacao</th>
+        <th scope="col">--</th>
+        <th scope="col">--</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for editora in editoras %}
+        <tr>
+          <th>{{ editora.id }}</th>
+          <td>{{ editora.name }}</td>
+          <td>{{ editora.since_year }}</td>
+          <td>
+            <a href="{% url 'editoras:edit_editora' editora.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'editoras:delete_editora' editora.id %}" >Excluir</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
