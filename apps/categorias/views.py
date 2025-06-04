@@ -15,13 +15,13 @@ def add_categoria(request):
             f.save()
             form.save_m2m()
             return redirect('categorias:list_categorias')
-    form = ClienteForm()
+    form = CategoriaForm()
     context['form'] = form
     return render(request, template_name, context)
 
 def list_categorias(request):
     template_name = 'categorias/list_categorias.html'
-    categorias = Cliente.objects.filter()
+    categorias = Categoria.objects.filter()
     context = {
         'categorias': categorias
     }
@@ -30,17 +30,17 @@ def list_categorias(request):
 def edit_categoria(request, id_categoria):
     template_name = 'categorias/add_categoria.html'
     context ={}
-    categoria = get_object_or_404(Cliente, id=id_categoria)
+    categoria = get_object_or_404(Categoria, id=id_categoria)
     if request.method == 'POST':
-        form = ClienteForm(request.POST, instance=categoria)
+        form = CategoriaForm(request.POST, instance=categoria)
         if form.is_valid():
             form.save()
             return redirect('categorias:list_categorias')
-    form = ClienteForm(instance=categoria)
+    form = CategoriaForm(instance=categoria)
     context['form'] = form
     return render(request, template_name, context)
 
 def delete_categoria(request, id_categoria):
-    categoria = Cliente.objects.get(id=id_categoria)
+    categoria = Categoria.objects.get(id=id_categoria)
     categoria.delete()
     return redirect('categorias:list_categorias')
