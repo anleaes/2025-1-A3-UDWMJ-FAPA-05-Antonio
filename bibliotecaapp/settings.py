@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig', 
     'clientes.apps.ClientesConfig', 
     'bibliotecarios.apps.BibliotecariosConfig', 
-    'categorias.apps.CategoriasConfig', 
+    'categorias.apps.CategoriasConfig',
+    'autores.apps.AutoresConfig',
 ]
 
 MIDDLEWARE = [
