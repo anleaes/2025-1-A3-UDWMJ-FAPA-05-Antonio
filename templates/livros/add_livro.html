@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Editora - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+  <b>Cadastro de Editoras</b>
+  <br />
+  <br />
+  <form action="" method="POST">
+    {% csrf_token %}
+    <label>Nome:</label>
+    <br />
+    {{ form.title }}
+    <br />
+    <label>Autor:</label>
+    <br />
+    {{ form.author }}
+    <br />
+    <label>Categoria</label>
+    <br />
+    {{ form.livro_category }}
+    <br />
+    <label>Editora</label>
+    <br />
+    {{ form.editor }}
+    <br />
+    <label>Data de Publicacao</label>
+    <br />
+    {{ form.release_date }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock %}

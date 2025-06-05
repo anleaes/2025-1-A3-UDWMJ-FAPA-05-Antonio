@@ -31,7 +31,13 @@
           <th>{{ livro.id }}</th>
           <td>{{ livro.title }}</td>
           <td>{{ livro.author }}</td>
-          <td>{{ livro.category }}</td>
+          <td>
+            {% for livro_category in livrocategorias %}
+                {% if livro_category.livro_id == livro.id %}
+                    <li>{{ livro_category.category }}</li>
+                {% endif %}
+            {% endfor %}
+          </td>
           <td>{{ livro.editor }}</td>
           <td>{{ livro.release_date }}</td>
           <td>
