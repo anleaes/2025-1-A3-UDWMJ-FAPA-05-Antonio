@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Emprestimos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Lista de Emprestimos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Cliente</th>
+            <th>Itens de pedido</th>
+            <th> -- </th>
+            <th> -- </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for emprestimo in emprestimos %}
+        <tr>
+            <td>
+                {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
+                    <p style="color:darkgray;" >{{ emprestimo.id }}</p>
+                {% else %}
+                    {{ emprestimo.id }}
+                {% endif %}
+            </td>
+            <td>
+                {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
+                    <p style="color:darkgray;" >{{ emprestimo.status }}</p>
+                {% else %}
+                    {{ emprestimo.status }}
+                {% endif %}
+             </td>
+            <td>
+                {% for cliente in clientes %}
+                    {% if emprestimo.cliente_id == cliente.id %}
+                        {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
+                            <p style="color:darkgray;" >{{ cliente.first_name }} {{ cliente.last_name }}</p>
+                        {% else %}
+                            {{ cliente.first_name }} {{ cliente.last_name }}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}   
+            </td>
+            <td>
+                {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
+                    <a href="#" class="btn btn-primary btn-sm disabled" style="color: darkgray;">Adicionar itens</a>
+                {% else %}
+                    <a href="{% url 'emprestimos:add_emprestimo_item' emprestimo.id %}" class="btn btn-primary btn-sm">Adicionar itens</a>
+                {% endif %}
+                <br />
+                <br />
+                {% for emprestimo_item in emprestimo_items %}
+                    {% if emprestimo_item.emprestimo_id == emprestimo.id %}
+                        Livro: {{ emprestimo_item.livro}}<br /> 
+                        <a href="{% url 'emprestimos:delete_emprestimo_item' emprestimo_item.id %}">Excluir Item</a><br /><br />
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                <a href="{% url 'emprestimos:edit_emprestimo_status' emprestimo.id %}">Alterar Status</a>
+            </td>
+            <td>
+                <a href="{% url 'emprestimos:delete_emprestimo' emprestimo.id %}">Excluir</a>
+            </td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock body %}

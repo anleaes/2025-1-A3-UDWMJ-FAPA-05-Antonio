@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Alterar Status do Emprestimo - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Alterar Status do Emprestimo</b>
+<br />
+<br />
+<form action="" method="POST">
+{% csrf_token %}
+    <label>Status</label>
+    <br />
+    {{ form.status }}
+    <br />
+    <br />
+    <button type="submit">Alterar</button>       
+</form>
+
+
+{% endblock body %}

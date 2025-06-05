@@ -44,21 +44,12 @@ classDiagram
 
   class Emprestimo {
     -Cliente: Cliente
-    -Bibliotecario: Bibliotecario
     -status: "em andamento", "finalizado"
-    -dataInicio: Date
-    -dataFim: Date
   }
 
   class ItemEmprestimo {
     -Livro: Livro
     -Emprestimo: Emprestimo
-  }
-
-  class Bibliotecario {
-    -nome: String
-    -sobrenome: String
-    -turno: "Matutino" | "Vespertino"
   }
 
   Categoria o--> LivroCategoria : ManyToMany
@@ -68,4 +59,3 @@ classDiagram
   Cliente "1" o--> "*" Emprestimo
   Livro "1" o--> "*" ItemEmprestimo
   Emprestimo "1" o--> "*" ItemEmprestimo
-  Bibliotecario "1" o--> "*" Emprestimo
