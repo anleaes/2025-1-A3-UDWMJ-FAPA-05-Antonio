@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import LivroForm
-from .models import Livro
+from .models import Livro, Categoria, LivroCategoria
 
 # Create your views here.
 
@@ -21,9 +21,13 @@ def add_livro(request):
 
 def list_livros(request):
     template_name = 'livros/list_livros.html'
+    livrocategorias = LivroCategoria.objects.filter()
+    categorias = Categoria.objects.filter()
     livros = Livro.objects.filter()
     context = {
-        'livros': livros
+        'livros': livros,
+        'categorias': categorias,
+        'livrocategorias': livrocategorias
     }
     return render(request, template_name, context)
 

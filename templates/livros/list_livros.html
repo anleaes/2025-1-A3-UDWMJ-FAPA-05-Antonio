@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Lista de Livros - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+    <a href="{% url 'livros:add_livro' %}">Cadastrar novo livro</a>
+  <br />
+  <br />
+  <b>Lista de livros</b>
+  <br />
+  <br />
+  <table border="1">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Editora</th>
+        <th scope="col">Data de Publicacao</th>
+        <th scope="col">--</th>
+        <th scope="col">--</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for livro in livros %}
+        <tr>
+          <th>{{ livro.id }}</th>
+          <td>{{ livro.title }}</td>
+          <td>{{ livro.author }}</td>
+          <td>
+            {% for livro_category in livrocategorias %}
+                {% if livro_category.livro_id == livro.id %}
+                    <li>{{ livro_category.category }}</li>
+                {% endif %}
+            {% endfor %}
+          </td>
+          <td>{{ livro.editor }}</td>
+          <td>{{ livro.release_date }}</td>
+          <td>
+            <a href="{% url 'livros:edit_livro' livro.id %}">Editar</a>
+          </td>
+          <td>
+            <a href="{% url 'livros:delete_livro' livro.id %}" >Excluir</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -32,10 +32,9 @@ classDiagram
   class Livro {
     -titulo: String
     -Autor: Autor
-    -Categoria: Categoria
+    -Categoria: Categoria (ManyTooMany)
     -Editora: Editora
     -anoPublicacao: int
-    -estoque: int
   }
 
   class Emprestimo {
@@ -57,8 +56,8 @@ classDiagram
     -turno: "Matutino" | "Vespertino"
   }
 
-  Categoria "*" o--> "many" Livro
-  Autor "*" o--> "*" Livro
+  Categoria "*" o--> "*" Livro
+  Autor "1" o--> "*" Livro
   Editora "1" o--> "*" Livro
   Cliente "1" o--> "*" Emprestimo
   Livro "1" o--> "1" ItemEmprestimo
