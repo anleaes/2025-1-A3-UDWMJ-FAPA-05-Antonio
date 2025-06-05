@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.list_clientes, name='list_clientes'),
     path('editar/<int:id_cliente>/', views.edit_cliente, name='edit_cliente'),
     path('excluir/<int:id_cliente>/', views.delete_cliente, name='delete_cliente'),
+    path('buscar/', views.search_clientes, name='search_clientes'),
 ]
