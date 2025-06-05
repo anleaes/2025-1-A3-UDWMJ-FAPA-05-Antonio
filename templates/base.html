@@ -6,13 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>{% block title %}Biblioteca App{% endblock title %}</title>
 </head>
 <body>
-    <a href="{% url 'core:home' %}" ><img src="{% static 'img/menu.png' %}" width="200" height="60" /></a>
-    <br/>
-
     <br />
     <a href="{% url 'clientes:list_clientes' %}" ><button>Clientes</button></a>
     <a href="{% url 'bibliotecarios:list_bibliotecarios' %}" ><button>Bibliotecarios</button></a>
@@ -27,6 +25,9 @@
     
     {% endblock body %}
     
-    <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
