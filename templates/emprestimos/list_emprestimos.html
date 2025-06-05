@@ -17,8 +17,6 @@
             <th>Status</th>
             <th>Cliente</th>
             <th>Itens de pedido</th>
-            <th>Data Inicio</th>
-            <th>Prazo</th>
             <th> -- </th>
             <th> -- </th>
         </tr>
@@ -53,7 +51,7 @@
             </td>
             <td>
                 {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
-                    <a href="#" class="btn btn-primary btn-sm disabled">Adicionar itens</a>
+                    <a href="#" class="btn btn-primary btn-sm disabled" style="color: darkgray;">Adicionar itens</a>
                 {% else %}
                     <a href="{% url 'emprestimos:add_emprestimo_item' emprestimo.id %}" class="btn btn-primary btn-sm">Adicionar itens</a>
                 {% endif %}
@@ -66,20 +64,6 @@
                     {% endif %}
                 {% endfor %}
             </td>
-            <td>
-                {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
-                    <p style="color:darkgray;" >{{ emprestimo.start_date }}</p>
-                {% else %}
-                    {{ emprestimo.start_date }}
-                {% endif %}
-             </td>
-             <td>
-                {% if emprestimo.status == 'Finalizado' or emprestimo.status == 'Cancelado' %}
-                    <p style="color:darkgray;" >{{ emprestimo.end_date }}</p>
-                {% else %}
-                    {{ emprestimo.end_date }}
-                {% endif %}
-             </td>
             <td>
                 <a href="{% url 'emprestimos:edit_emprestimo_status' emprestimo.id %}">Alterar Status</a>
             </td>
