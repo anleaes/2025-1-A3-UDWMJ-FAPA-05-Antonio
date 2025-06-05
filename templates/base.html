@@ -6,27 +6,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my-styles.css' %}">
     <title>{% block title %}Biblioteca App{% endblock title %}</title>
 </head>
 <body>
-    <a href="{% url 'core:home' %}" ><img src="{% static 'img/menu.png' %}" width="200" height="60" /></a>
-    <br/>
+    <header>
+        <div>
+            <a href="{% url 'core:home' %}" ><button class="btn header-btn">Home</button></a>
+            <div class="dropdown" style="display: inline-block;">
+                <button class="btn header-btn dropdown-toggle" type="button" id="menuDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="menuDropdown">
+                    <a class="dropdown-item" href="{% url 'clientes:list_clientes' %}">Clientes</a>
+                    <a class="dropdown-item" href="{% url 'bibliotecarios:list_bibliotecarios' %}">Bibliotecarios</a>
+                    <a class="dropdown-item" href="{% url 'categorias:list_categorias' %}">Categorias</a>
+                    <a class="dropdown-item" href="{% url 'autores:list_autores' %}">Autores</a>
+                    <a class="dropdown-item" href="{% url 'editoras:list_editoras' %}">Editoras</a>
+                    <a class="dropdown-item" href="{% url 'livros:list_livros' %}">Livros</a>
+                    <a class="dropdown-item" href="{% url 'emprestimos:list_emprestimos' %}">Emprestimos</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form action="{% url 'clientes:search_clientes' %}" method="GET">
+                <input name="query" type="text" placeholder="Sobrenome do cliente" aria-label="Buscar">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <br />
 
-    <br />
-    <a href="{% url 'clientes:list_clientes' %}" ><button>Clientes</button></a>
-    <a href="{% url 'bibliotecarios:list_bibliotecarios' %}" ><button>Bibliotecarios</button></a>
-    <a href="{% url 'categorias:list_categorias' %}" ><button>Categorias</button></a>
-    <a href="{% url 'autores:list_autores' %}" ><button>Autores</button></a>
-    <a href="{% url 'editoras:list_editoras' %}" ><button>Editoras</button></a>
-    <a href="{% url 'livros:list_livros' %}" ><button>Livros</button></a>
-    <a href="{% url 'emprestimos:list_emprestimos' %}" ><button>Emprestimos</button></a>
-    <br />
+    <div class="page_content">
+        {% block body %}
+        
+        {% endblock body %}
+    </div>
     
-    {% block body %}
-    
-    {% endblock body %}
-    
-    <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
