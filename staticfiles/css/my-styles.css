@@ -1,0 +1,18 @@
+header {
+    display: flex;
+    gap: 8px;
+    background-color: lightblue;
+    min-height: 64px;
+    align-items: center;
+}
+
+.header-btn {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .8px; 
+    padding-left: 16px;
+}
+
+.page_content {
+    margin: 16px;
+}
