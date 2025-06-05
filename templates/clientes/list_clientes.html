@@ -24,6 +24,7 @@
         <th scope="col">Genero</th>
         <th scope="col">--</th>
         <th scope="col">--</th>
+        <th scope="col">--</th>
       </tr>
     </thead>
     <tbody>
@@ -41,6 +42,9 @@
           </td>
           <td>
             <a href="{% url 'clientes:delete_cliente' cliente.id %}" >Excluir</a>
+          </td>
+          <td>   
+            <a href="{% url 'emprestimos:add_emprestimo' cliente.id %}">Fazer Emprestimo</a>
           </td>
         </tr>
       {% endfor %}

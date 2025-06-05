@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Abrir Emprestimo - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<br />
+<b>Deseja abrir um emprestimo de livro? </b>
+<form action="" method="POST">
+{% csrf_token %}
+    <button type="submit">Sim</button> <a href="{% url 'clientes:list_clientes' %}">Nao</a>     
+</form>
+<br />
+<br />     
+
+{% endblock body %}
