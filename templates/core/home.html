@@ -6,7 +6,30 @@
 
 {% block body %}
 
+{% load static %}
+
 <!-- Codigo html especifico desse arquivo -->
-    <p>Página incial do bibliotecaapp.</p>
+
+<div class="home-container">
+    <div class="home-left">
+        <h3>Bem Vindo ao Biblioteca App.</h3>
+        <h4>Ações rápidas:</h4>
+        <div class="home-left-actions">
+            <div class="home-left-actions-search">
+                <form action="{% url 'clientes:search_clientes' %}" method="GET">
+                    <input name="query" type="text" placeholder="Buscar cliente pelo sobrenome" aria-label="Buscar">
+                    <button type="submit"><span class="material-symbols-outlined">search</span>Buscar</button>
+                </form>
+            </div>
+            <a class="quick-btn" href="{% url 'clientes:list_clientes' %}"><span class="material-symbols-outlined">group</span>Listar Clientes</a>
+            <a class="quick-btn" href="{% url 'clientes:add_cliente' %}"><span class="material-symbols-outlined">addgroup</span>Criar novo Cliente</a>
+            <a class="quick-btn" href="{% url 'livros:list_livros' %}"><span class="material-symbols-outlined">menu_book</span>Ver Livros</a>
+            <a class="quick-btn" href="{% url 'livros:add_livro' %}"><span class="material-symbols-outlined">addmenu_book</span>Adicionar um Livro</a>
+        </div>
+    </div>
+    <div class="home-right">
+        <img alt="Imagem Biblioteca" src="{% static 'img/biblioteca.webp' %}" />
+    </div>
+</div>
 
 {% endblock body %}
