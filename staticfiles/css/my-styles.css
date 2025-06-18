@@ -56,12 +56,13 @@ header {
     margin-top: 16px;
 }
 
-.home-left-actions a{
+.quick-btn{
     display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
     width: calc(50% - 8px);
+    max-width: 500px;
     height: 7vh;
     border-radius: 16px;
     border: solid 1px black;
@@ -71,8 +72,9 @@ header {
     font-size: large;
 }
 
-.home-left-actions a:hover{
+.quick-btn:hover{
     background-color: rgb(225, 240, 250);
+    text-decoration: none;
 }
 
 .home-left-actions-search {
