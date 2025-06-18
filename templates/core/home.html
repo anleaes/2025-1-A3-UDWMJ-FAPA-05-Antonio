@@ -6,7 +6,28 @@
 
 {% block body %}
 
+{% load static %}
+
 <!-- Codigo html especifico desse arquivo -->
-    <p>Página incial do bibliotecaapp.</p>
+
+<div class="home-container">
+    <div class="home-left">
+        <h3>Bem Vindo ao Biblioteca App.</h3>
+        <h4>Ações rápidas:</h4>
+        <div class="home-left-actions">
+            <div class="home-left-actions-search">
+                <form action="{% url 'clientes:search_clientes' %}" method="GET">
+                    <input name="query" type="text" placeholder="Buscar cliente pelo sobrenome" aria-label="Buscar">
+                    <button type="submit"><span class="material-symbols-outlined">search</span>Buscar</button>
+                </form>
+            </div>
+            <a href="{% url 'clientes:list_clientes' %}">Listar Clientes</a>
+            
+        </div>
+    </div>
+    <div class="home-right">
+        <img alt="Imagem Biblioteca" src="{% static 'img/biblioteca.webp' %}" />
+    </div>
+</div>
 
 {% endblock body %}
