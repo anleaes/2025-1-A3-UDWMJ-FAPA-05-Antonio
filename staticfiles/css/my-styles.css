@@ -75,6 +75,7 @@ header {
 .quick-btn:hover{
     background-color: rgb(225, 240, 250);
     text-decoration: none;
+    color: black;
 }
 
 .home-left-actions-search {
