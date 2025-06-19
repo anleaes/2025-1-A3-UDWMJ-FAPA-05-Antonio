@@ -9,7 +9,7 @@ def add_autor(request):
     template_name = 'autores/add_autor.html'
     context = {}
     if request.method == 'POST':
-        form = AutorForm(request.POST)
+        form = AutorForm(request.POST, request.FILES)
         if form.is_valid():
             f = form.save(commit=False)
             f.save()
@@ -32,7 +32,7 @@ def edit_autor(request, id_autor):
     context ={}
     autor = get_object_or_404(Autor, id=id_autor)
     if request.method == 'POST':
-        form = AutorForm(request.POST, instance=autor)
+        form = AutorForm(request.POST, request.FILES, instance=autor)
         if form.is_valid():
             form.save()
             return redirect('autores:list_autores')
