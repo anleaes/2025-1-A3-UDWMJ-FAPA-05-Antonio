@@ -18,6 +18,7 @@
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Idade</th>
+        <th scope="col">Foto</th>
         <th scope="col">--</th>
         <th scope="col">--</th>
       </tr>
@@ -28,6 +29,9 @@
           <th>{{ autor.id }}</th>
           <td>{{ autor.name }}</td>
           <td>{{ autor.age }}</td>
+          <td>
+              <img src="{{ autor.photo.url }}" width="50" height="50">
+          </td>
           <td>
             <a href="{% url 'autores:edit_autor' autor.id %}">Editar</a>
           </td>
