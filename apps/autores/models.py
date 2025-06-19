@@ -5,7 +5,7 @@ from django.db import models
 class Autor(models.Model):
     name = models.CharField('Nome', max_length=50)
     age = models.IntegerField('Idade',null=True, blank=True,default=0)
-    photo = models.ImageField('Foto', upload_to='photos')
+    photo = models.ImageField('Foto', upload_to='autor_photos/', default='autor_photos/default_author.jpg')
 
     class Meta:
         verbose_name = 'Autor'
