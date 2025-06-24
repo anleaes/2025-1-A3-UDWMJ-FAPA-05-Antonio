@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}
     Novo usuario - {{ block.super}}
 {% endblock title %}
@@ -19,13 +21,12 @@
     {{ form.last_name }}
     <br />
     <br />              
-    <label>>Nome de usuario</label>
-    <br /> 
+    <label>Nome de usuario</label>
     <br /> 
     {{ form.username }}
     <br /> 
-    <label>E-mail</label>
     <br /> 
+    <label>E-mail</label>
     <br /> 
     {{ form.email }}
     <br /> 
@@ -37,3 +38,5 @@
     <br />            
     <button type="submit" >Salvar</button>
 </form>
+
+{% endblock body %}
