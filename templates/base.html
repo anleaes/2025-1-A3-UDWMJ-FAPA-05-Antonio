@@ -18,6 +18,21 @@
             <a href="{% url 'core:home' %}" ><button class="btn header-btn">Home</button></a>
             <div class="dropdown" style="display: inline-block;">
                 <button class="btn header-btn dropdown-toggle" type="button" id="menuDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Conta
+                </button>
+                <div class="dropdown-menu" aria-labelledby="menuDropdown">
+                    {% if user.is_authenticated %}
+                        <!-- <a class="dropdown-item" href="#">{{ user.get_full_name|default:user.username }}</a> -->
+                        <a class="dropdown-item" href="{% url 'accounts:user_change_information' user.username %}">Alterar dados</a>
+                        <a class="dropdown-item" href="{% url 'accounts:user_change_password' %}">Trocar senha</a>
+                        <a class="dropdown-item" href="{% url 'accounts:user_logout' %}">Sair de {{ user.get_full_name|default:user.username }}</a>
+                    {% else %}
+                        <a class="dropdown-item" href="{% url 'accounts:user_login' %}">Entrar</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="dropdown" style="display: inline-block;">
+                <button class="btn header-btn dropdown-toggle" type="button" id="menuDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Menu
                 </button>
                 <div class="dropdown-menu" aria-labelledby="menuDropdown">

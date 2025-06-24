@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'editoras.apps.EditorasConfig',
     'livros.apps.LivrosConfig',
     'emprestimos.apps.EmprestimosConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
