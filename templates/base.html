@@ -22,10 +22,10 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="menuDropdown">
                     {% if user.is_authenticated %}
-                        <a class="dropdown-item" href="#">{{ user.get_full_name|default:user.username }}</a>
-                        <a class="dropdown-item" href="{% url 'accounts:user_change_information' user.username %}">Conta</a>
+                        <!-- <a class="dropdown-item" href="#">{{ user.get_full_name|default:user.username }}</a> -->
+                        <a class="dropdown-item" href="{% url 'accounts:user_change_information' user.username %}">Alterar dados</a>
                         <a class="dropdown-item" href="{% url 'accounts:user_change_password' %}">Trocar senha</a>
-                        <a class="dropdown-item" href="{% url 'accounts:user_logout' %}">Sair</a>
+                        <a class="dropdown-item" href="{% url 'accounts:user_logout' %}">Sair de {{ user.get_full_name|default:user.username }}</a>
                     {% else %}
                         <a class="dropdown-item" href="{% url 'accounts:user_login' %}">Entrar</a>
                     {% endif %}
